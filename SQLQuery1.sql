@@ -64,3 +64,40 @@ FDH_Respondent_Relation='Biological Mother'
 select * from tbl_Dump_P1 where Gender='M' and
 FDH_Respondent_Relation='Biological Father'
 
+/*Creating a view */
+Create View VwDumpAudit AS
+Select P1.SubJID, P1.Age_at_NpExam, P1.Age_At_IMGExam, P1.Gender,
+P1.FDH_Res pondent_Relation, P1.FDH_Guardian_1_Relation,
+P2.FDH_Highest_Education, P2. FDH_Highest_Occupation,
+P2.FDH_40s_Brain_Cancer_Mother,
+P2.FDH_40s_Brain_Cancer_Father, P2.TBX_attention_score,
+P2.TBX_dccs_score, P2.TBX_IBAM_set,
+P2.TBX_ibamt1,P2.TBX_ibamt2, P2. TBX_ibamt3,P2.TBX_ibamt4, P5.Age
+from tbl_Dump_P1 P1 join tbl_Dump_P2 P2 on P1.SubJID=P2.SubjiD join
+tbl_Dump_P5 P5 on P2.SubjID = P5.SubjID
+Select * from VwDumpAudit
+
+/* Updating it with a new column */
+Update VwDumpAudit set FDH_Highest_Occupation = 7 where SubjID
+='P0144'
+
+/* Altering View with adding new columns */
+ALTER View VwDumpAudit AS
+Select P1.SubJID, P1.Age_at_NpExam, P1.Age_At_IMGExam, P1.Gender,
+P1.FDH_Respondent_Relation, P1.FDH_Guardian_1_Relation,
+P2.FDH_Highest_Education, P2. FDH_Highest_Occupation,
+P2.FDH_40s_Brain_Cancer_Mother,
+P2.FDH_40s_Brain_Cancer_Father, P2.TBX_attention_score,
+P2.TBX_dccs_score, P2.TBX_IBAM_set,
+P2.TBX_ibamt1,P2.TBX_ibamt2, P2.TBX_ibamt3,P2.TBX_ibamt4,
+P2.PHX_ANX_TOTAL,P2 .PHX_ANX_PDI,P2.PHX_ANX_SADI,P2.PHX_ANX_SoPI,P2.P
+HX_ANX_OCDI,P2.PHX_ANX_GADI,P2.PHX_ANX_TSDI,P2.PHX_ANX_SPSETI,
+P2.PHX_ANX_SPBIITI,P2.PHX_ANX_SPATI,P2.PHX_DEP_TOTAL,P2.PHX_DEP_SCRE
+EN,P2.PHX_IMP_TOTAL,P2.PHX_IMP_LKPREM,P2.PHX_IMP_NEGURG,
+P2.PHX_IMP_SNSEEK,P 2.PHX_IMP_LKPERS,P2.PHX_IMP_POSURG,P2.PHX_IMP_LKP
+REM_NSKI,P5.Age
+from tbl_Dump_P1 P1 join tbl_Dump_P2 P2 on P1.SubJID=P2.SubjiD join
+tbl_Dump_P5 P5 on P2.SubjID = P5.SubjID
+
+Select min(TBX_attention_score) Mini, max(TBX_attention_score) Maxi
+from VwDumpAudit
