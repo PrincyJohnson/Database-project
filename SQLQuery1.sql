@@ -65,7 +65,7 @@ select * from tbl_Dump_P1 where Gender='M' and
 FDH_Respondent_Relation='Biological Father'
 
 /*Creating a view */
-Create View vmdumpAudit AS
+Create View VwDumpAudit AS
 Select P1.SubJID, P1.Age_at_NpExam, P1.Age_At_IMGExam, P1.Gender,
 P1.FDH_Respondent_Relation, P1.FDH_Guardian_1_Relation,
 P2.FDH_Highest_Education, P2.FDH_Highest_Occupation,
