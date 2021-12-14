@@ -67,7 +67,7 @@ FDH_Respondent_Relation='Biological Father'
 /*Creating a view */
 Create View VwDumpAudit AS
 Select P1.SubJID, P1.Age_at_NpExam, P1.Age_At_IMGExam, P1.Gender,
-P1.FDH_Res pondent_Relation, P1.FDH_Guardian_1_Relation,
+P1.FDH_Respondent_Relation, P1.FDH_Guardian_1_Relation,
 P2.FDH_Highest_Education, P2.FDH_Highest_Occupation,
 P2.FDH_40s_Brain_Cancer_Mother,P2.FDH_40s_Brain_Cancer_Father, P2.TBX_attention_score,
 P2.TBX_dccs_score, P2.TBX_IBAM_set,P2.TBX_ibamt1,P2.TBX_ibamt2, P2.TBX_ibamt3,P2.TBX_ibamt4, P5.Age
